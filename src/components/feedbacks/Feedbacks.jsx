@@ -1,25 +1,29 @@
-import { Component } from 'react';
-import { PropTypes } from "prop-types";
+// import { Component } from 'react';
+// import { PropTypes } from "prop-types";
 
 import { Feedback } from "./Feedbacks.styled";
 
 
-export class Feedbacks extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0
-  }
-  render() {
+export const Feedbacks = ({onLeavefeedback, options}) => {
+
+
    return (
     <Feedback>
-      <button>Good</button>
-      <button>Neutral</button>
-      <button>Bad</button>
+       <button onClick={() => { onLeavefeedback("good") }}>Good</button>
+       <button onClick={() => { onLeavefeedback("neutral") }}>Neutral</button>
+       <button onClick={() => { onLeavefeedback("bad") }}>Bad</button>
     </Feedback>
     );
- }
+ 
 }
 
 
-
+//   render() {
+//    return (
+//     <Feedback>
+//       <button>Good</button>
+//       <button>Neutral</button>
+//       <button>Bad</button>
+//     </Feedback>
+//     );
+//  }
