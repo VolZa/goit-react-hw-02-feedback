@@ -21,13 +21,12 @@ export class App extends Component {
       return obj;
     });
   }
+  
   // Function of counting the total number of feedbacks
   countTotalFeedback = () => { 
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
   };
-
-
 
   render() {
     return (
