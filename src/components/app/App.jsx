@@ -4,6 +4,7 @@ import { Container } from "./App.styled";
 import { GlobalStyle } from "./GlobalStyle";
 import { Feedbacks } from "../feedbacks/Feedbacks";
 import { Title } from 'components/title/Title';
+import { StatisticsFeedback } from 'components/statistics/Statistics';
 
 export class App extends Component {
   state = {
@@ -17,26 +18,34 @@ export class App extends Component {
       this.setState(oldState => {
       let obj = { ...oldState };
         obj[feedback] = oldState[feedback] + 1;
-        // console.log(obj);
-        console.log(obj[feedback]);
       return obj;
     });
   }
+  // Function of counting the total number of feedbacks
+  countTotalFeedback = () => { 
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+
+
 
   render() {
-      return (
-    <Container>
-      <GlobalStyle />
+    return (
+      <Container>
+        <GlobalStyle />
 
-      <Title title="Please Leave feedback"/>
-      <Feedbacks  options={Object.keys(this.state)}
-                  onLeavefeedback={this.addFeedback}  
-      />
-    </Container>
-    // <
-  
-  );
+        <Title title="Please Leave feedback"/>
+        <Feedbacks  options={Object.keys(this.state)}
+                    onLeavefeedback={this.addFeedback}  
+        />
+        <Title title="Statistics" />     
+        {this.countTotalFeedback() === 0
+          ? <p>No feedback given</p>
+          : <StatisticsFeedback statistic={this.state}
+            total={this.countTotalFeedback()}
+          > </StatisticsFeedback>}   
+
+      </Container>
+    );
   }
 };
-
-

@@ -5,8 +5,6 @@ import { Feedback } from "./Feedbacks.styled";
 
 
 export const Feedbacks = ({onLeavefeedback, options}) => {
-
-
    return (
     <Feedback>
        <button onClick={() => { onLeavefeedback("good") }}>Good</button>
