@@ -1,4 +1,3 @@
-// import { Component } from 'react';
 import { PropTypes } from "prop-types";
 
 import { Feedback } from "./Feedbacks.styled";
@@ -19,12 +18,4 @@ Feedbacks.propTypes = {
    options: PropTypes.array.isRequired,
  };
 
-//   render() {
-//    return (
-//     <Feedback>
-//       <button>Good</button>
-//       <button>Neutral</button>
-//       <button>Bad</button>
-//     </Feedback>
-//     );
-//  }
+
