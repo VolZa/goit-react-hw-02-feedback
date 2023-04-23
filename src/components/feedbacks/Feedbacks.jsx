@@ -1,5 +1,5 @@
 // import { Component } from 'react';
-// import { PropTypes } from "prop-types";
+import { PropTypes } from "prop-types";
 
 import { Feedback } from "./Feedbacks.styled";
 
@@ -14,7 +14,10 @@ export const Feedbacks = ({onLeavefeedback, options}) => {
     );
  
 }
-
+Feedbacks.propTypes = {
+   onLeavefeedback:  PropTypes.func.isRequired,
+   options: PropTypes.array.isRequired,
+ };
 
 //   render() {
 //    return (
