@@ -1,6 +1,6 @@
 
 import { Component } from 'react';
-import { Container } from "./App.styled";
+import { Container} from "./App.styled";
 import { GlobalStyle } from "./GlobalStyle";
 import { Feedbacks } from "../feedbacks/Feedbacks";
 import { Title } from 'components/title/Title';
@@ -38,8 +38,7 @@ addFeedback = (feedback) => {
                     onLeavefeedback={this.addFeedback}  
         />
         <Title title="Statistics" /> 
-        {this.totalFeedbackCount = this.countTotalFeedback()}
-        {this.totalFeedbackCount === 0
+        {(this.totalFeedbackCount=this.countTotalFeedback()) === 0
           ? <p>No feedback given</p>
           : <StatisticsFeedback statistic={this.state}
             total={this.totalFeedbackCount}
