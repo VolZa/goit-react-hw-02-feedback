@@ -38,17 +38,11 @@ addFeedback = (feedback) => {
                     onLeavefeedback={this.addFeedback}  
         />
         <Title title="Statistics" /> 
-        
-        {
-          // Сама Спроба створити змінну призводить до помилки
-          // Як створити таку змінну??
-          // const (або let) totalFeedback = this.countTotalFeedback();
-          // console.log(totalFeedback); 
-          // console.log(this.countTotalFeedback());  
-        this.countTotalFeedback() === 0
+        {this.totalFeedbackCount = this.countTotalFeedback()}
+        {this.totalFeedbackCount === 0
           ? <p>No feedback given</p>
           : <StatisticsFeedback statistic={this.state}
-            total={this.countTotalFeedback()}
+            total={this.totalFeedbackCount}
           > </StatisticsFeedback>}   
       </Container>
     );
