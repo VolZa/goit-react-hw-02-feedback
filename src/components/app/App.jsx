@@ -13,6 +13,11 @@ export class App extends Component {
     bad: 0
   }
 
+  totalFeedbackCount = 0;
+
+  componentDidMount() {
+    this.totalFeedbackCount = this.countTotalFeedback();
+  }
   //функція для додавання відгуку (збільшення значення в стейті)
 addFeedback = (feedback) => {
   this.setState(oldState => ({[feedback]:oldState[feedback]+1
@@ -36,16 +41,11 @@ addFeedback = (feedback) => {
         />
         <Title title="Statistics" /> 
         
-        {
-          // Сама Спроба створити змінну призводить до помилки
-          // Як створити таку змінну??
-          // const (або let) totalFeedback = this.countTotalFeedback();
-          // console.log(totalFeedback); 
-          // console.log(this.countTotalFeedback());  
-        this.countTotalFeedback() === 0
+            
+        {  this.totalFeedbackCount === 0
           ? <p>No feedback given</p>
           : <StatisticsFeedback statistic={this.state}
-            total={this.countTotalFeedback()}
+            total={this.totalFeedbackCount}
           > </StatisticsFeedback>}   
       </Container>
     );
