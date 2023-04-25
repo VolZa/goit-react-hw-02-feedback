@@ -13,8 +13,6 @@ export class App extends Component {
     bad: 0
   }
 
-  totalFeedbackCount = 0;
-
   
   //функція для додавання відгуку (збільшення значення в стейті)
 addFeedback = (feedback) => {
@@ -29,6 +27,7 @@ addFeedback = (feedback) => {
   };
 
   render() {
+    const totalFeedbackCount  =this.countTotalFeedback();
     return (
       <Container>
         <GlobalStyle />
@@ -38,10 +37,10 @@ addFeedback = (feedback) => {
                     onLeavefeedback={this.addFeedback}  
         />
         <Title title="Statistics" /> 
-        {(this.totalFeedbackCount=this.countTotalFeedback()) === 0
+        {(totalFeedbackCount) === 0
           ? <p>No feedback given</p>
           : <StatisticsFeedback statistic={this.state}
-            total={this.totalFeedbackCount}
+            total={totalFeedbackCount}
           > </StatisticsFeedback>}   
       </Container>
     );
